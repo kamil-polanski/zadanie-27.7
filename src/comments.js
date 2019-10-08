@@ -1,7 +1,8 @@
 import {
   ADD_COMMENT,
   REMOVE_COMMENT,
-  THUMB_UP_COMMENT
+  THUMB_UP_COMMENT,
+  THUMB_DOWN_COMMENT
 } from './actions';
 
 export function comments(state = [], action) {
@@ -21,6 +22,13 @@ export function comments(state = [], action) {
       return state.map(comment => {
         if (comment.id === action.id) {
           return { ...comment, votes: comment.votes + 1 }
+        }
+        return comment;
+      });
+      case THUMB_DOWN_COMMENT:
+      return state.map(comment => {
+        if (comment.id === action.id) {
+          return { ...comment, votes: comment.votes - 1 }
         }
         return comment;
       });
