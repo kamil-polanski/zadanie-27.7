@@ -28,11 +28,11 @@ export function editComment(id, text) {
 	}
 }
 
-export function thumbUpComment(id) {
-	return {
-		type: THUMB_UP_COMMENT,
-		id
-	}
+export function thumbUpComment(commentId) {
+  return {
+    type: THUMB_UP_COMMENT,
+    id: commentId
+  }
 }
 
 export function thumbDownComment(id) {
